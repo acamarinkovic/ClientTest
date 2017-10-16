@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="main_green_color">#53d98b</color>
+    <color name="splash_screen_dark_green">#47ba77</color>
+    <color name="white">#ffffff</color>
+    <color name="gray_my_card_background">#fbfcfe</color>
+    <color name="floating_button_color">#648598</color>
+</resources>

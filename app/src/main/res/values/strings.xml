@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Cripple</string>
+    <string name="take_a_photo">Take a Photo</string>
+    <string name="camera_roll">Camera Roll</string>
+    <string name="personal_name">Personal Name</string>
+    <string name="fall_detected">Fall Detected</string>
+    <string name="settings">Settings</string>
+    <string name="choose_disability">Choose Disability</string>
+    <string name="simulator">simulator</string>
+    <string name="temperature">temperature</string>
+    <string name="send_a_temperature">send a temperature</string>
+    <string name="send_pressure">send pressure</string>
+    <string name="send_a_message">Send a message</string>
+    <string name="message">Message</string>
+</resources>

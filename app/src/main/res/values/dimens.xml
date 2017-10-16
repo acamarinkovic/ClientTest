@@ -1,0 +1,53 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="margin_1">1dp</dimen>
+    <dimen name="progress_bar_round">3dp</dimen>
+    <dimen name="font_size_17sp">17sp</dimen>
+    <dimen name="font_size_18sp">18sp</dimen>
+    <dimen name="font_size_19sp">19sp</dimen>
+    <dimen name="font_size_20sp">20sp</dimen>
+    <dimen name="font_size_22sp">22sp</dimen>
+    <dimen name="font_size_15sp">15sp</dimen>
+    <dimen name="font_size_14sp">14sp</dimen>
+    <dimen name="font_size_9sp">9sp</dimen>
+    <dimen name="font_size_11sp">11sp</dimen>
+    <dimen name="font_size_12sp">12sp</dimen>
+    <dimen name="font_size_16sp">16sp</dimen>
+    <dimen name="font_size_23sp">23sp</dimen>
+    <dimen name="font_size_29sp">29sp</dimen>
+
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="height_2dp">2dp</dimen>
+    <dimen name="radius_6dp">6dp</dimen>
+    <dimen name="margin_3">3dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_24">24dp</dimen>
+    <dimen name="tab_layout_space">30dp</dimen>
+    <dimen name="tab_radius_6dp">6dp</dimen>
+    <dimen name="tab_radius_4dp">4dp</dimen>
+    <dimen name="padding_16">16dp</dimen>
+    <dimen name="padding_12">12dp</dimen>
+    <dimen name="padding_18">18dp</dimen>
+    <dimen name="padding_8">8dp</dimen>
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_2">2dp</dimen>
+    <dimen name="padding_4">4dp</dimen>
+    <dimen name="margin_48">48dp</dimen>
+    <dimen name="padding_52">52dp</dimen>
+    <dimen name="standard_button">48dp</dimen>
+    <dimen name="height_30dp">30dp</dimen>
+    <dimen name="width_48">48dp</dimen>
+    <dimen name="size_2dp">2dp</dimen>
+    <dimen name="tool_bar_top_padding">25dp</dimen>
+    <dimen name="negative_margin_8">-8dp</dimen>
+    <dimen name="font_size_10sp">10sp</dimen>
+    <dimen name="tab_underline_height">3dp</dimen>
+    <dimen name="widh_30dp">30dp</dimen>
+    <dimen name="height_5dp">5dp</dimen>
+    <integer name="anim_length">1000</integer>
+    <integer name="anim_length_half">500</integer>
+
+
+</resources>
