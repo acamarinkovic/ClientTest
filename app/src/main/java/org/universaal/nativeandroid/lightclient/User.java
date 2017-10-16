@@ -1,5 +1,7 @@
 package org.universaal.nativeandroid.lightclient;
 
+import com.pixplicity.easyprefs.library.Prefs;
+
 /**
  * Created by Aleksandar Marinković on 16-Oct-17.
  */
@@ -10,7 +12,8 @@ public class User {
     String type;
     String data;
     String userId;
-
+    String phone;
+    String address;
     public String getUserId() {
         return userId;
     }
@@ -37,6 +40,8 @@ public class User {
         this.name = name;
         this.type = type;
         this.data = data;
+        phone= Prefs.getString(Constants.PHONE,"");
+        address= Prefs.getString(Constants.ADDRESS,"");
         userId = DeviceIdGenerator.readDeviceId(Application.getInstance());
     }
 

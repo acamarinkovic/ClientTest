@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         String images = Prefs.getString(Constants.AVATAR, null);
+        chooseDisability.setVisibility(View.GONE);
         personalName.setText(Prefs.getString(Constants.FIRST_NAME, ""));
         if (images != null) {
             addImage.setVisibility(View.GONE);
@@ -87,13 +88,15 @@ public class MainActivity extends AppCompatActivity {
         }
         fragmentOrganizer = new FragmentOrganizer(getSupportFragmentManager(), SimulatorFragment.class);
         ArrayList<Class> fragments = new ArrayList<>();
+        fragments.add(SettingsFragment.class);
+        fragments.add(SimulatorFragment.class);
         fragmentOrganizer.setUpContainer(R.id.fragment_holder, fragments);
         inic();
 
         multipleActions.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
             @Override
             public void onMenuExpanded() {
-                chooseDisability.setVisibility(View.VISIBLE);
+
                 settingsIcon.setVisibility(View.VISIBLE);
                 simulatorIcon.setVisibility(View.VISIBLE);
             }
@@ -267,6 +270,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.settings_icon)
     public void onSettingsIconClicked() {
+        EventBus.getDefault().post(new FragmentEvent(SettingsFragment.class));
     }
 
     @OnClick(R.id.simulator_icon)

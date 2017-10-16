@@ -67,7 +67,8 @@
         android:textColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="445dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="70dp" />
 
     <EditText
         android:id="@+id/tem_text"
@@ -108,7 +109,8 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/send_temperature"
-        app:layout_constraintTop_toTopOf="@+id/send_pressure" />
+        app:layout_constraintTop_toTopOf="@+id/send_pressure"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/message_text"
@@ -128,5 +130,7 @@
         app:layout_constraintBottom_toTopOf="@+id/send_message"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pressure_text" />
+        app:layout_constraintTop_toBottomOf="@+id/pressure_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintVertical_bias="0.0" />
 </android.support.constraint.ConstraintLayout>
