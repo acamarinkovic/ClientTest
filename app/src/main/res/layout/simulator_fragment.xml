@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/rounded_rectangle_no_board"
         android:padding="@dimen/padding_16"
         android:text="@string/send_a_temperature"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="17dp"
         android:background="@drawable/rounded_rectangle_no_board"
         android:padding="@dimen/padding_16"
         android:text="@string/send_pressure"
@@ -67,8 +67,8 @@
         android:textColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="70dp" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/message_text" />
 
     <EditText
         android:id="@+id/tem_text"
@@ -76,7 +76,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="0dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="24dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/text_view"
         android:hint="@string/temperature"
@@ -85,11 +84,9 @@
         android:textColor="@color/white"
         android:textColorHint="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="@+id/send_temperature"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/send_temperature"
         app:layout_constraintTop_toTopOf="@+id/send_temperature"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.615" />
 
     <EditText
         android:id="@+id/pressure_text"
@@ -106,17 +103,17 @@
         android:textColor="@color/white"
         android:textColorHint="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="@+id/send_pressure"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/send_temperature"
         app:layout_constraintTop_toTopOf="@+id/send_pressure"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        app:layout_constraintVertical_bias="0.5" />
 
     <EditText
         android:id="@+id/message_text"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
@@ -127,10 +124,8 @@
         android:padding="@dimen/padding_16"
         android:textColor="@color/white"
         android:textColorHint="@android:color/holo_blue_dark"
-        app:layout_constraintBottom_toTopOf="@+id/send_message"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pressure_text"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.0" />
 </android.support.constraint.ConstraintLayout>
