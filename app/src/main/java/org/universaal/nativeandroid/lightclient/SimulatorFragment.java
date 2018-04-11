@@ -1,5 +1,6 @@
 package org.universaal.nativeandroid.lightclient;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -24,15 +25,17 @@ public class SimulatorFragment extends BaseFragment {
     @BindView(R.id.file_dtected)
     Button fileDtected;
     @BindView(R.id.send_temperature)
-    Button sendTemperature;
+    Button sendHearthRate;
     @BindView(R.id.send_pressure)
     Button sendPressure;
     @BindView(R.id.send_message)
     Button sendMessage;
-    @BindView(R.id.tem_text)
-    EditText temText;
+    @BindView(R.id.hearth_rate_text)
+    EditText hearthRateText;
     @BindView(R.id.pressure_text)
     EditText pressureText;
+    @BindView(R.id.diastolic_text)
+    EditText diastolicText;
     @BindView(R.id.message_text)
     EditText messageText;
 
@@ -53,29 +56,42 @@ public class SimulatorFragment extends BaseFragment {
 
     @OnClick(R.id.file_dtected)
     public void onFileDtectedClicked() {
-        postMessage(Constants.FALL_DETECTED,"");
+        Intent intent = new Intent(Constants.ACTION_FALL_DETECTED);
+        intent.putExtra("type", Constants.FALL_DETECTED);
+        postMessage(intent);
     }
 
     @OnClick(R.id.send_temperature)
     public void onSendTemperatureClicked() {
-        postMessage(Constants.TEMPERATURE,temText.getText().toString());
+        Intent intent = new Intent(Constants.ACTION_HEARTH_RATE);
+        intent.putExtra("type", Constants.HEARTH_RATE);
+        intent.putExtra("value", hearthRateText.getText());
+        postMessage(intent);
+        hearthRateText.setText("");
     }
 
     @OnClick(R.id.send_pressure)
     public void onSendPressureClicked() {
-        postMessage(Constants.PRESSURE,pressureText.getText().toString());
+        Intent intent = new Intent(Constants.ACTION_BLOOD_PRESSURE);
+        intent.putExtra("type", Constants.PRESSURE);
+        intent.putExtra("value", pressureText.getText());
+        intent.putExtra("value2", diastolicText.getText());
+        postMessage(intent);
+        pressureText.setText("");
+        diastolicText.setText("");
     }
 
     @OnClick(R.id.send_message)
     public void onSendMessageClicked() {
-        postMessage(Constants.MESSAGE,messageText.getText().toString());
+        Intent intent = new Intent(Constants.ACTION_SEND_MESSAGE);
+        intent.putExtra("type", Constants.MESSAGE);
+        intent.putExtra("value", messageText.getText());
+        postMessage(intent);
+        messageText.setText("");
     }
 
-    public void postMessage(String type, String message) {
-        User user = new User(type, message);
-        Gson gson = new Gson();
-        String json = gson.toJson(user, User.class);
-        ((MainActivity) getActivity()).sendData(json);
+    public void postMessage(Intent intent) {
+        ((MainActivity) getActivity()).sendData(intent);
 
     }
 

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -34,6 +35,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.prefs.PreferenceChangeEvent;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,12 +48,6 @@ import permissions.dispatcher.RuntimePermissions;
 @RuntimePermissions
 public class MainActivity extends AppCompatActivity {
 
-    public static final String PREFIX = "org.universaal.nativeandroid.light.";
-    public static final String ACTION_CALL_ON = PREFIX + "CALL_ON";
-    public static final String ACTION_CALL_GETLAMPS = PREFIX + "CALL_GETLAMPS";
-    public static final String ACTION_REPLY_GETLAMPS = PREFIX + "REPLY_GETLAMPS";
-    public static final String EXTRA_REPLYACTION = "org.universAAL.android.action.META_REPLYTOACT";
-    public static final String EXTRA_REPLYCATEGORY = "org.universAAL.android.action.META_REPLYTOCAT";
     public static final int REQUEST_CODE_EDIT_PROFILE_IMAGE_CAPTURE = 104;
     public static final int REQUEST_CODE_EDIT_PROFILE_IMAGE_PICK = 105;
     @BindView(R.id.profile_image_view)
@@ -91,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
         fragments.add(SettingsFragment.class);
         fragments.add(SimulatorFragment.class);
         fragmentOrganizer.setUpContainer(R.id.fragment_holder, fragments);
-        inic();
 
         multipleActions.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
             @Override
@@ -111,20 +106,10 @@ public class MainActivity extends AppCompatActivity {
         EventBus.getDefault().post(new FragmentEvent(SimulatorFragment.class));
     }
 
-    private void inic() {
-        Intent intent = new Intent(ACTION_CALL_GETLAMPS);
+    public void sendData(Intent intent) {
         intent.addCategory(Intent.CATEGORY_DEFAULT);
-        intent.putExtra(EXTRA_REPLYACTION, ACTION_REPLY_GETLAMPS);
-        intent.putExtra(EXTRA_REPLYCATEGORY, Intent.CATEGORY_DEFAULT);
+        intent.putExtra("sender", personalName.getText());
         sendBroadcast(intent);
-    }
-
-    public void sendData(String data) {
-        Intent i = new Intent(ACTION_CALL_ON);
-        i.addCategory(Intent.CATEGORY_DEFAULT);
-        i.putExtra("lamp", data);
-
-        sendBroadcast(i);
     }
 
     @OnClick(R.id.profile_image_view)
@@ -185,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
         bitmap = ExifUtil.rotateBitmap(filepath, bitmap);
         int outWidth = bitmap.getWidth();
         int outHeight = bitmap.getHeight();
-        Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap, outWidth, outHeight, true);
+        Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap, 100, 100, true);
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 70, bos);
         final Bitmap resizedBitmapFinal = resizedBitmap;
@@ -284,10 +269,14 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.update)
     public void onViewClicked() {
-
-        User user = new User(Prefs.getString(Constants.AVATAR, ""), Prefs.getString(Constants.FIRST_NAME, ""),Constants.AVATAR,"");
+        Intent intent = new Intent(Constants.ACTION_SEND_PROFILE);
+        intent.putExtra("type", Constants.UPDATE);
+        intent.putExtra("value", Prefs.getString(Constants.AVATAR, null));
+        intent.putExtra("value2", Prefs.getString(Constants.ADDRESS,null));
+        sendData(intent);
+        /*User user = new User(Constants.FIRST_NAME,Prefs.getString(Constants.FIRST_NAME, ""),"", Prefs.getString(Constants.AVATAR, ""));
         Gson gson= new Gson();
         String json = gson.toJson(user, User.class);
-        sendData(json);
+        sendData(json);*/
     }
 }

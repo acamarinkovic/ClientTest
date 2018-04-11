@@ -22,7 +22,7 @@ public class User {
         this.userId = userId;
     }
 
-    public User(String name, String type, String data) {
+    public User(String type,String name, String data) {
         this.name = name;
         this.type = type;
         this.data = data;
@@ -35,7 +35,7 @@ public class User {
         userId = DeviceIdGenerator.readDeviceId(Application.getInstance());
     }
 
-    public User(String avatar, String name, String type, String data) {
+    public User(String type, String name , String data,String avatar) {
         this.avatar = avatar;
         this.name = name;
         this.type = type;

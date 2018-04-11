@@ -43,10 +43,10 @@ public class SettingsFragment extends BaseFragment {
 
 
     public void postMessage(String type, String message) {
-        User user = new User(type, message);
+        /*User user = new User(type, message);
         Gson gson = new Gson();
         String json = gson.toJson(user, User.class);
-        ((MainActivity) getActivity()).sendData(json);
+        ((MainActivity) getActivity()).sendData(json);*/
 
     }
 
